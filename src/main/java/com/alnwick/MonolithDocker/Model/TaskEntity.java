@@ -25,6 +25,7 @@ public class TaskEntity {
     @Column(nullable = false)
     private String description;
 
+    @Enumerated(EnumType.STRING)
     private StatusTask status;
 
     private LocalDate dueDate;
