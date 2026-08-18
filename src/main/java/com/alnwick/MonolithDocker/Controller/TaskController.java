@@ -26,7 +26,7 @@ public class TaskController {
         return ResponseEntity.ok(taskService.findAll());
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     public ResponseEntity<TaskEntity> taskById(@RequestParam Long id){
         Optional<TaskEntity> task = taskService.findById(id);
 
@@ -40,7 +40,7 @@ public class TaskController {
         return ResponseEntity.ok(newTask);
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public ResponseEntity<TaskEntity> updateTask(@RequestParam Long id,
             @RequestBody TaskUpdateDto taskDto){
 
@@ -52,7 +52,7 @@ public class TaskController {
         return ResponseEntity.badRequest().build();
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteTask(@RequestParam Long id){
 
         taskService.deleteById(id);
